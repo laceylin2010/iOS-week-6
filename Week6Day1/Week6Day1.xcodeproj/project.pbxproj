@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		AFA0286A1C8E20370074035A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA028691C8E20370074035A /* main.m */; };
 		AFA028781C8E28CC0074035A /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA028771C8E28CC0074035A /* NSString+Additions.m */; };
+		AFA0287F1C8E4A560074035A /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA0287E1C8E4A560074035A /* Task.m */; };
+		AFA028821C8E4A8B0074035A /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA028811C8E4A8B0074035A /* Person.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +30,11 @@
 		AFA028691C8E20370074035A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AFA028761C8E28CC0074035A /* NSString+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Additions.h"; path = "../NSString+Additions.h"; sourceTree = "<group>"; };
 		AFA028771C8E28CC0074035A /* NSString+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Additions.m"; path = "../NSString+Additions.m"; sourceTree = "<group>"; };
+		AFA0287C1C8E4A090074035A /* Animal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animal.h; sourceTree = "<group>"; };
+		AFA0287D1C8E4A560074035A /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		AFA0287E1C8E4A560074035A /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
+		AFA028801C8E4A8B0074035A /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		AFA028811C8E4A8B0074035A /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +70,11 @@
 				AFA028761C8E28CC0074035A /* NSString+Additions.h */,
 				AFA028771C8E28CC0074035A /* NSString+Additions.m */,
 				AFA028691C8E20370074035A /* main.m */,
+				AFA0287D1C8E4A560074035A /* Task.h */,
+				AFA0287E1C8E4A560074035A /* Task.m */,
+				AFA028801C8E4A8B0074035A /* Person.h */,
+				AFA028811C8E4A8B0074035A /* Person.m */,
+				AFA0287C1C8E4A090074035A /* Animal.h */,
 			);
 			path = Week6Day1;
 			sourceTree = "<group>";
@@ -123,7 +135,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFA0287F1C8E4A560074035A /* Task.m in Sources */,
 				AFA0286A1C8E20370074035A /* main.m in Sources */,
+				AFA028821C8E4A8B0074035A /* Person.m in Sources */,
 				AFA028781C8E28CC0074035A /* NSString+Additions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
