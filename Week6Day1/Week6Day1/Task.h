@@ -10,6 +10,6 @@
 
 @interface Task : NSObject
 
--(void) checkingType: (id) isChecking;
++(void) checkingType: (id) isChecking;
 
 @end
