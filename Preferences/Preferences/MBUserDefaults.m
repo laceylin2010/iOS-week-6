@@ -68,7 +68,7 @@ dispatch_once(&onceToken, ^{
     NSData * jsonData = [NSJSONSerialization dataWithJSONObject:self.preferences options:NSJSONWritingPrettyPrinted error:&error];
     
     if (!error && jsonData) {
-        if ([jsonData writeToFile:[self preferencesURL] atomically:YES]) {
+        if ([jsonData writeToURL:[self preferencesURL] atomically:YES]) {
             [[NSNotificationCenter defaultCenter]postNotificationName:KMBUserDefaultsDidUpdate object:nil];
         }
     }
@@ -99,6 +99,7 @@ dispatch_once(&onceToken, ^{
 
 - (NSURL *)preferencesURL
 {
+    NSLog(@"%@", [[self documentsDirectory]URLByAppendingPathComponent:@"preferences.json"]);
     return [[self documentsDirectory]URLByAppendingPathComponent:@"preferences.json"];
 }
 
