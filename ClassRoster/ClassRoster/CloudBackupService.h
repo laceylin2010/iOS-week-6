@@ -8,12 +8,13 @@
 
 @import UIKit;
 @import CloudKit;
+#import "Student+Additions.h"
 
 @class Student;
 
 typedef enum: NSUInteger
 {
-    CloudOperationSabe = 0,
+    CloudOperationSave = 0,
     CloudOperationRetrieve,
     CloudOperationDelete,
     

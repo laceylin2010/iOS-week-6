@@ -53,12 +53,12 @@ static NSString *const StudentRecordType = @"Student";
 
 -(void)enqueueOperation: (CloudOperation)operation student:(Student *)student completion: (CloudBackupServiceCompletion)completion
 {
-    if (operation == CloudOperationSabe) {
+    if (operation == CloudOperationSave) {
         [self save:student completion:completion];
     }
     
     if (operation == CloudOperationRetrieve) {
-        [self save:student completion:completion];
+        [self retrieve: completion];
     }
     
     if (operation == CloudOperationDelete) {
@@ -71,16 +71,71 @@ static NSString *const StudentRecordType = @"Student";
 
 -(void)retrieve: (CloudBackupServiceCompletion)completion
 {
+    //getting all student records from cloudkit
     
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"TRUEPREDICATE"];
+    CKQuery *query = [[CKQuery alloc]initWithRecordType:StudentRecordType predicate:predicate];
+    
+    [self.database performQuery:query inZoneWithID:nil completionHandler:^(NSArray<CKRecord *> * _Nullable results, NSError * _Nullable error) {
+        
+        [Student studentsFromRecords:results completion:^(NSArray *students) {
+            completion(YES, students);
+        }];
+        
+    }];
 }
 
--(void)save: (Student *)student completion:(CloudBackupServiceCompletion)completion
+-(void)save:(Student *)student completion:(CloudBackupServiceCompletion)completion
 {
+ 
+    //creates CKRecord and uses student variables and sets the properties to the student record(CKRecord) and tells it to save to cloudkit.
     
+    CKRecord *studentRecord = [[CKRecord alloc]initWithRecordType:StudentRecordType];
+    studentRecord[@"firstName"] = student.firstName;
+    studentRecord[@"lastName"] = student.lastName;
+    studentRecord[@"email"] = student.email;
+    studentRecord[@"phone"] = student.phone;
+    
+    [self.database saveRecord:studentRecord completionHandler:^(CKRecord * _Nullable record, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"%@", [error localizedDescription]);
+        }
+        
+        else if(record) {
+            [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+                completion(YES, @[student]);
+            }];
+        }
+    }];
 }
 
--(void)delete: (Student *)student completion:(CloudBackupServiceCompletion)completion
+-(void)delete:(Student *)student completion:(CloudBackupServiceCompletion)completion
 {
+    //creating predicate and searching for student with email address. create and execute query to cloudkit and will give us an array of those records. then when we get results we will delete from cloudkit.
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"email == %@", student.email];
+    CKQuery *query = [[CKQuery alloc]initWithRecordType:StudentRecordType predicate:predicate];
+    [self.database performQuery:query inZoneWithID:nil completionHandler:^(NSArray<CKRecord *> * _Nullable results, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"%@", [error localizedDescription]);
+        }
+        else if (results) {
+            for (CKRecord *record in results) {
+                [self.database deleteRecordWithID:record.recordID completionHandler:^(CKRecordID * _Nullable recordID, NSError * _Nullable error) {
+                    if (error) {
+                        NSLog(@"%@", [error localizedDescription]);
+                    }
+                    else {
+                        [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+                            completion(YES, @[student]);
+                        }];
+                    }
+                }];
+            }
+        }
+        
+    }];
+    
     
 }
 

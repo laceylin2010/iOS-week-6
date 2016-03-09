@@ -20,7 +20,7 @@
 @property (strong, nonatomic) Student *student;
 
 
-- (IBAction)saveButton:(UIButton *)sender;
+- (IBAction)saveButton:(id)sender;
 
 @end
 
@@ -47,6 +47,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 
 }
 
@@ -70,7 +71,7 @@
 
 
 
-- (IBAction)saveButton:(UIButton *)sender {
+- (IBAction)saveButton:(id)sender {
     
     self.student.firstName = self.firstNameField.text;
     self.student.lastName = self.lastNameField.text;
@@ -78,10 +79,15 @@
     self.student.phone = self.phoneField.text;
     
     if (self.student.isValidStudent) {
-        [[StudentStore sharedStore]add:self.student];
-        [self.navigationController popViewControllerAnimated:YES];
+        [[StudentStore sharedStore]add:self.student completion:^{
+             [self.navigationController popViewControllerAnimated:YES];
+       
+        }];
     }
     
+    else {
+        [self showAlertView];
+    }
 }
 
 

@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "Student.h"
 #import "StudentStore.h"
+#import "CloudBackupService.h"
 
 
 
@@ -41,11 +42,25 @@
 
 }
 
-#pragma mark - U
+-(void)updateStudents
+{
+    __weak typeof(self) weakSelf = self;
+    
+    [[CloudBackupService sharedService]enqueueOperation:^(BOOL success, NSArray *students) {
+        [[StudentStore sharedStore]addStudentsFromCloudKit:students];
+        [weakSelf.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+    }];
+    
+}
+
+
+#pragma mark - UITableViewDataSource
+
+
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.dataSource count];
+    return [[StudentStore sharedStore]count];
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
