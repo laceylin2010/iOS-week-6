@@ -24,6 +24,7 @@
 {
 
     if(_name != name){
+        name = [NSString stringWithString:name]; //makes its own copy
         [_name release];
         [name retain];
    
@@ -39,6 +40,7 @@
 -(void)setEmail: (NSString*)email
 {
     if (_email != email){
+        email = [NSString stringWithString:email];
         [_email release];
         [email retain];
 
