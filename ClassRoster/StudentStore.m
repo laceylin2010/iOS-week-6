@@ -18,7 +18,7 @@
 
 @implementation StudentStore
 
--(instancetype)sharedStore
++(instancetype)sharedStore
 {
     static StudentStore *sharedStore = nil;
     static dispatch_once_t onceToken;
@@ -51,6 +51,17 @@
 }
 
 #pragma mark - Instance Methods
+
+-(NSInteger)count
+{
+    return [self.students count];
+}
+
+-(Student *)studentsForIndexPath:(NSIndexPath *)indexPath
+{
+    return [self.students objectAtIndex:indexPath.row];
+}
+
 
 -(NSArray *)allStudents
 {

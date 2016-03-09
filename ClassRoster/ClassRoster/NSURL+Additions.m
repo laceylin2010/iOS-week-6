@@ -12,9 +12,7 @@
 
 + (NSURL *)documentsDirectory
 {
-    [[[NSFileManager defaultManager]URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask]firstObject];
-    
-    return nil;
+    return [[[NSFileManager defaultManager]URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask]firstObject];
 }
 
 +(NSURL *)archiveUrl

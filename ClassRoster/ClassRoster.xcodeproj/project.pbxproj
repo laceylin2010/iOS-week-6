@@ -17,6 +17,10 @@
 		AFD001AA1C9085E3002D6FA8 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD001A91C9085E3002D6FA8 /* Student.m */; };
 		AFD001B11C909175002D6FA8 /* StudentStore.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD001B01C909175002D6FA8 /* StudentStore.m */; };
 		AFD001B41C909394002D6FA8 /* NSURL+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD001B31C909394002D6FA8 /* NSURL+Additions.m */; };
+		AFD001B81C909CF2002D6FA8 /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD001B71C909CF2002D6FA8 /* AddViewController.m */; };
+		AFD001BB1C909FC6002D6FA8 /* Student+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD001BA1C909FC6002D6FA8 /* Student+Additions.m */; };
+		AFD001BE1C90A022002D6FA8 /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD001BD1C90A022002D6FA8 /* NSString+Additions.m */; };
+		AFD001C11C90A4E3002D6FA8 /* CloudBackupService.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD001C01C90A4E3002D6FA8 /* CloudBackupService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,14 @@
 		AFD001B01C909175002D6FA8 /* StudentStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StudentStore.m; path = ../StudentStore.m; sourceTree = "<group>"; };
 		AFD001B21C909394002D6FA8 /* NSURL+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+Additions.h"; sourceTree = "<group>"; };
 		AFD001B31C909394002D6FA8 /* NSURL+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+Additions.m"; sourceTree = "<group>"; };
+		AFD001B61C909CF2002D6FA8 /* AddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = "<group>"; };
+		AFD001B71C909CF2002D6FA8 /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = "<group>"; };
+		AFD001B91C909FC6002D6FA8 /* Student+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Student+Additions.h"; sourceTree = "<group>"; };
+		AFD001BA1C909FC6002D6FA8 /* Student+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Student+Additions.m"; sourceTree = "<group>"; };
+		AFD001BC1C90A022002D6FA8 /* NSString+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Additions.h"; sourceTree = "<group>"; };
+		AFD001BD1C90A022002D6FA8 /* NSString+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Additions.m"; sourceTree = "<group>"; };
+		AFD001BF1C90A4E3002D6FA8 /* CloudBackupService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloudBackupService.h; sourceTree = "<group>"; };
+		AFD001C01C90A4E3002D6FA8 /* CloudBackupService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudBackupService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +84,7 @@
 		AFD0018B1C908521002D6FA8 /* ClassRoster */ = {
 			isa = PBXGroup;
 			children = (
+				AFD001C21C90A4E7002D6FA8 /* Service */,
 				AFD001B51C909399002D6FA8 /* Categories */,
 				AFD001AB1C9085E9002D6FA8 /* Models */,
 				AFD001A31C90852C002D6FA8 /* ClassRoster.entitlements */,
@@ -98,6 +111,8 @@
 		AFD001A61C90853E002D6FA8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				AFD001B61C909CF2002D6FA8 /* AddViewController.h */,
+				AFD001B71C909CF2002D6FA8 /* AddViewController.m */,
 				AFD001921C908521002D6FA8 /* ViewController.h */,
 				AFD001931C908521002D6FA8 /* ViewController.m */,
 			);
@@ -115,6 +130,8 @@
 		AFD001AB1C9085E9002D6FA8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				AFD001B91C909FC6002D6FA8 /* Student+Additions.h */,
+				AFD001BA1C909FC6002D6FA8 /* Student+Additions.m */,
 				AFD001AF1C909175002D6FA8 /* StudentStore.h */,
 				AFD001B01C909175002D6FA8 /* StudentStore.m */,
 				AFD001A81C9085E3002D6FA8 /* Student.h */,
@@ -126,10 +143,21 @@
 		AFD001B51C909399002D6FA8 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				AFD001BC1C90A022002D6FA8 /* NSString+Additions.h */,
+				AFD001BD1C90A022002D6FA8 /* NSString+Additions.m */,
 				AFD001B31C909394002D6FA8 /* NSURL+Additions.m */,
 				AFD001B21C909394002D6FA8 /* NSURL+Additions.h */,
 			);
 			name = Categories;
+			sourceTree = "<group>";
+		};
+		AFD001C21C90A4E7002D6FA8 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				AFD001BF1C90A4E3002D6FA8 /* CloudBackupService.h */,
+				AFD001C01C90A4E3002D6FA8 /* CloudBackupService.m */,
+			);
+			name = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,10 +238,14 @@
 			files = (
 				AFD001941C908521002D6FA8 /* ViewController.m in Sources */,
 				AFD001AA1C9085E3002D6FA8 /* Student.m in Sources */,
+				AFD001BE1C90A022002D6FA8 /* NSString+Additions.m in Sources */,
 				AFD001B41C909394002D6FA8 /* NSURL+Additions.m in Sources */,
+				AFD001B81C909CF2002D6FA8 /* AddViewController.m in Sources */,
+				AFD001C11C90A4E3002D6FA8 /* CloudBackupService.m in Sources */,
 				AFD001B11C909175002D6FA8 /* StudentStore.m in Sources */,
 				AFD001911C908521002D6FA8 /* AppDelegate.m in Sources */,
 				AFD0018E1C908521002D6FA8 /* main.m in Sources */,
+				AFD001BB1C909FC6002D6FA8 /* Student+Additions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

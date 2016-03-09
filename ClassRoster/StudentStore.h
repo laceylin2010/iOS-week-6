@@ -12,10 +12,11 @@
 
 @interface StudentStore : NSObject
 
--(instancetype)sharedStore;
++ (instancetype)sharedStore;
 
-
+-(NSInteger)count;
 -(NSArray *)allStudents;
+-(Student *)studentsForIndexPath:(NSIndexPath *)indexPath;
 -(void)add:(Student *)student;
 -(void)remove: (Student *)student;
 -(void)removeStudentAtIndexPath: (NSIndexPath *)indexPath;
